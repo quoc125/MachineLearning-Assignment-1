@@ -27,15 +27,9 @@ def Euclidean(v1, v2):
         sum  = sum + np.square(y-x)
     return np.sqrt(sum)
 
-#Return an list with a list of n split
-def subList(list, n):
-    i = 0
-    size = len(list)/n
-    newList = []
-    while (i < len(list)):
-        newList.append(list[int(i) : int(i+size)])
-        i = i + size
-    return newList
+def findNearNeighbor(training, test, k, method):
+
+    return false
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
@@ -51,4 +45,16 @@ if __name__ == "__main__":
            if (len(parameter) == 5):
                 List.append(Iris(parameter[0],parameter[1],parameter[2], parameter[3], parameter[4]))
            line = fp.readline()
-    dataSet = subList(List, 5)
+    
+    i = 0
+    testSet = []
+    trainingSet = []
+    size = int(len(List)/5)
+
+    while (i < len(List)):
+        trainingSet = (List[0:i])
+        trainingSet.extend(List[i+size: len(List)])
+        testSet = List[i : i+size]
+
+        i = i + size
+
